@@ -1,0 +1,23 @@
+{
+  "name": "ricr-qa-task",
+  "version": "1.0.0",
+  "description": "RICR Dashboard - Tester Evaluation Task (Jest unit tests + Playwright API/UI tests)",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "test:unit": "jest",
+    "test:api": "playwright test --project=api",
+    "test:ui": "playwright test --project=ui",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.6",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "typescript": "^5.9.3"
+  }
+}
