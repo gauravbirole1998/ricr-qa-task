@@ -11,12 +11,12 @@ jest.mock("../lib/prisma", () => ({
   },
 }));
 
-// Typed handle on the mocked function so we get autocomplete + type safety.
+// New Typed handle on the mocked function so we get autocomplete + type safety.
 const findUniqueMock = prisma.caller.findUnique as jest.Mock;
 
 const fakeCaller: CallerRecord = {
   id: 7,
-  name: "Aman Verma",
+  name: "Gaurav Verma",
   email: "aman@example.com",
   phone: "9876543210",
   roleId: 2,
