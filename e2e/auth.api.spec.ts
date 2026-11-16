@@ -13,7 +13,7 @@ import { test, expect, APIRequestContext } from "@playwright/test";
 
 const MOBILE_UA = "Mozilla/5.0 (Android 13; Mobile)";
 const PASSWORD = "Passw0rd!123"; // min 6 chars per the spec
-
+  
 type Credentials = { userName: string; email: string; password: string };
 
 /** Unique credentials per call (timestamp + random suffix). */
@@ -91,7 +91,7 @@ test.describe("POST /auth/register", () => {
 });
 
 test.describe("POST /auth/login", () => {
-  // Test 3
+  // Test Scenario 3
   test("web client: sets the accessToken cookie", async ({ request }) => {
     const user = uniqueUser();
     await registerUser(request, user);
@@ -123,7 +123,7 @@ test.describe("POST /auth/login", () => {
     expect(body.data.accessToken.length).toBeGreaterThan(0);
   });
 
-  // Test 5
+  // Test Scenario 5
   test("rejects a wrong password with 401", async ({ request }) => {
     const user = uniqueUser();
     await registerUser(request, user);
@@ -139,7 +139,7 @@ test.describe("POST /auth/login", () => {
 });
 
 test.describe("GET /auth/me", () => {
-  // Test 6
+  // Test Scenario 6
   test("returns 401 when no token is sent", async ({ request }) => {
     // The `request` fixture is fresh per test, so it carries no cookies.
     const res = await request.get("auth/me");
@@ -147,7 +147,7 @@ test.describe("GET /auth/me", () => {
     expect(res.status()).toBe(401);
   });
 
-  // Test 7
+  // Test Scenario test 7
   test("returns the current user when a valid cookie is sent", async ({
     request,
   }) => {
